@@ -9,7 +9,7 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   int perguntaIndex = 0;
   int pontuacao = 0;
-  
+
   void responder(bool resposta) {
     if (resposta) {
       pontuacao++;
@@ -65,17 +65,24 @@ class _QuizPageState extends State<QuizPage> {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
-            Column(
-              children: perguntas[perguntaIndex].respostas.map((resposta) {
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: perguntas[perguntaIndex].respostas.length,
+              itemBuilder: (context, index) {
+                final resposta = perguntas[perguntaIndex].respostas[index];
                 return Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10),
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 255, 255, 255), // Cor de fundo do botão
-                      onPrimary: Colors.blue, // Cor do texto do botão
-                      padding: EdgeInsets.all(20), // Espaçamento interno
-                      textStyle: TextStyle(fontSize: 18), // Estilo do texto
-                      minimumSize: Size(double.infinity, 60), // Altura fixa dos botões
+                      primary: Colors.white,
+                      onPrimary: Colors.blue,
+                      textStyle: TextStyle(fontSize: 18),
+                      minimumSize: Size(double.infinity, 60),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                        side: BorderSide(color: Colors.blue),
+                      ),
+                      elevation: 3, // Adiciona uma sombra ao botão
                     ),
                     onPressed: () {
                       responder(resposta['correta']);
@@ -83,7 +90,7 @@ class _QuizPageState extends State<QuizPage> {
                     child: Text(resposta['texto']),
                   ),
                 );
-              }).toList(),
+              },
             ),
           ],
         ),

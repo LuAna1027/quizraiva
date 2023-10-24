@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.blue, Colors.indigo],
+            colors: [const Color.fromARGB(255, 96, 125, 150), const Color.fromARGB(255, 0, 0, 0)],
           ),
         ),
         child: Center(
@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             children: [
               ClipOval(
                 child: Image.asset(
-                  'assets/quiz.jpg', // Replace with the actual path to your image asset
+                  'assets/quiz.png', // Replace with the actual path to your image asset
                   width: 200, // Adjust the width as needed
                   height: 200, // Adjust the height as needed
                 ),
