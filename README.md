@@ -1,6 +1,8 @@
 # quiz
 
-A new Flutter project.
+Trabalho realizado por: Ana Luisa Esteves de Oliveira e Deny Willian Martins 
+2° Matutino de Informática 
+IFRO Porto Velho - campus Calama
 
 ## Getting Started
 
